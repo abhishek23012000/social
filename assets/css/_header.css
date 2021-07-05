@@ -1,0 +1,16 @@
+#nav {
+  background-color: #221c1e;
+  margin-top: -20px;
+  padding: 20px;
+  font-size: larger;
+  font-family: sans-serif;
+  font-weight: bolder; }
+  #nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none; }
+  #nav a {
+    color: white;
+    text-decoration: none; }

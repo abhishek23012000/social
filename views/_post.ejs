@@ -1,0 +1,107 @@
+
+
+    <li id="post-<%= post._id %>">
+        <div style="border-style: solid; margin-bottom: 30px; border-radius: 4px; ">
+
+        
+        <p>
+            <i class="fa fa-angle-right "></i>
+            <i>
+                <%= post.user.name %>
+            </i>
+            <div style="width:100%; height:fit-content; background-color: #30d5c8;">
+                <p style=" padding-top: 15px; padding-left: 10%; padding-bottom: 15px;">
+                    <%= post.content %> 
+                </p>
+                
+               
+            </div>
+<div style=" display:inline-block; width: fit-content;">
+
+
+        
+                <% if (locals.user){ %>
+                    <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                            <%= post.likes.length %> Likes
+                    </a>
+                <% }else{ %>
+                    <%= post.likes.length %> Likes
+                <% } %>
+</div>
+                
+            <% if (locals.user && locals.user.id == post.user.id){ %>
+                <div style=" display:inline-block; width: fit-content; margin-left: 90%; ">
+                   
+                    <a class="delete-post-button"  href="/posts/destroy/<%= post.id %>">
+                        <span class="text-right" style="margin-left: 90%;">
+                            <input  type="submit" <i type="submit" class="fa fa-trash-o" style="font-size:25px;color:rgb(213, 101, 101) "></i>
+                        </span>
+                       
+                        
+                    </a>
+                    
+                </div>
+                <% } %>
+            
+           
+         
+           
+            
+         
+            <!-- <small>
+                <%= post.user.name %>
+            </small> -->
+           
+               
+            
+    
+            <!-- CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+        
+                <!-- study about the data attribute -->
+            
+    
+        </p>
+        <div style="margin-bottom: 30px;">
+            <a class="btn btn-outline-success" data-bs-toggle="collapse" href="#collapseExample " role="button" aria-expanded="false" aria-controls="collapseExample">
+                Comment on post
+              </a>
+        </div>
+        
+          <div class="collapse" id="collapseExample">
+            
+            <div class="post-comments" style=" border-bottom: solid; border-width: 3px;  margin-bottom: 30px; background-color: transparent;" >
+                <% if (locals.user){ %>
+                    <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+                    <div style=" height: 30px; margin-left: 30%; ">
+                    <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+                        <input style="border-radius: 30px; width: 50%; margin-top: 3px;  background-color: rgb(190, 231, 231);" type="text" name="content" placeholder="Type Here to add comment..." autocomplete="off" required>
+                        
+                        <input type="hidden" name="post" value="<%= post._id %>" >
+                        <input type="submit" value="Add Comment" class="btn btn-outline-success btn-sm"  >
+                    </form>
+                    </div>
+        
+                <% } %>
+        
+                <div class="post-comments-list">
+                    <ul id="post-comments-<%= post._id %>">
+                        <% for (comment of post.comments){%>
+        
+                            <%- include('_comment') -%>
+                            
+                        
+                        <%} %>
+                    </ul>
+                </div>
+            </div>
+           
+          </div>        
+     
+        </div>
+
+
+     
+        
+    </li>
+
+

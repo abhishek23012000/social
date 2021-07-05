@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div id="home-container">
+
+    <section id="feed-posts">
+        <h4 style="background-color: #04aea0; width: 15%; border-radius: 10px; padding: 5px; font-size: medium; text-align: center; margin-bottom: 15px; margin-top: 10px;">Add question </h4>
+        <% if(locals.user){ %>
+
+    <form action="/posts/create" id="new-post-form" method="POST">
+        <textarea name="content" style="width: 100%;" cols="30" rows="3" placeholder="What is your question or link? "  autocomplete="off"  required></textarea>
+        <div class="text-right">
+            <input type="submit" class="btn btn-success" value="Post">
+        </div>
+       
+       
+
+    </form>
+
+            
+            <% } %>
+
+                <div id="posts-list-container">
+                    <ul>
+
+                        <% for(post of posts){ %>
+
+                            <%- include('_post') %>
+
+                                <% }%>
+
+                    </ul>
+
+                </div>
+
+    </section>
+
+    <section id="user-friends" class="col-sm-3 mt-4 pb-3 pt-3">
+        <div id="friends-container">
+            <h4>
+                Following
+            </h4>
+            <ul class="list-group">
+                <% if(locals.user){ %>
+                <%if(locals.friends.length==0){%>
+                <h6>Friends list is empty.</h6>
+                <%}%>
+                <%}%>
+                <%for(fr of locals.friends){%>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class='d-flex justify-content-around align-items-center'>
+                        <div style="height:40px;width:40px;border-radius: 50%;">
+                            <img src="<%=fr.friend_avatar%>" onerror="this.onerror=null; this.src='/images/no-image.png'" alt="No images" style="height:100%; width:100%; border-radius:inherit;">
+                       
+                        </div>
+                        <div class="ml-2">
+                            <a href="/users/profile/<%=fr.friend_id%>"><%=fr.friend_name%></a>
+                        </div>
+                    </div>
+                    <a class="badge badge-primary"><i class="fas fa-comment"></i></a>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+
+        <hr>
+        
+        <div id="all-users-container">
+            <h4>
+                All Users
+            </h4>
+
+            <ul class="list-group">
+                <%for(u of locals.all_users){%>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+                </li>
+                <%}%>
+            </ul>
+        </div>    
+    </section>
+    
+    <%- include('_chat_box') -%>
+</div>
+
+<script src="/js/home_post_comments.js" ></script> 
+<script src="/js/home_posts.js"></script> 
+
+<!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
+<script src="js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
+
+
+<script src="/js/chat_home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) { %>
+ <script>
+     new ChatEngine('user-chat-box','<%= locals.user.email %>')
+ </script>
+ <% }  %>
