@@ -1,0 +1,9 @@
+[0mGET /users/sign-out [36m302[0m 777.816 ms - 46[0m
+[0mGET / [32m200[0m 1968.446 ms - 8005[0m
+[0mGET /users/sign-in [36m304[0m 378.067 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 706.604 ms - 46[0m
+[0mGET / [32m200[0m 2523.398 ms - 11212[0m
+[0mPOST /comments/create [36m302[0m 2615.538 ms - 46[0m
+[0mGET / [32m200[0m 2994.632 ms - 12233[0m
+[0mGET /comments/destroy/60f71a539a6bd52ee819ff24 [36m302[0m 1328.703 ms - 88[0m
+[0mGET / [32m200[0m 2726.280 ms - 11206[0m

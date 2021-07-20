@@ -1,4 +1,8 @@
 
+
+    // jQuery methods go here...
+  
+
     {
         // method to submit the form data for new post using AJAX
         let createPost = function () {
@@ -48,7 +52,7 @@
                 <i>
                 ${post.user.name}
                 </i>
-                <div style="width:100%; height:fit-content; background-color: rgb(43, 46, 46);">
+                <div style="width:100%; height:fit-content; background-color: #30d5c8;">
                     <p style=" padding-top: 15px; padding-left: 10%; padding-bottom: 15px;">
                     ${post.content} 
                    

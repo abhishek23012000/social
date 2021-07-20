@@ -1,0 +1,25 @@
+combined 
+combined 
+combined 
+combined 
+combined 
+combined 
+combined 
+combined 
+[0mGET / [32m200[0m 1249.133 ms - 21227[0m
+[0mGET / [32m200[0m 1813.986 ms - 5505[0m
+[0mGET /users/sign-in [32m200[0m 539.450 ms - 5599[0m
+[0mPOST /users/create-session [36m302[0m 885.289 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 855.809 ms - 5801[0m
+[0mGET /users/sign-up [32m200[0m 628.064 ms - 6615[0m
+[0mPOST /users/create [36m302[0m 1694.164 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 375.611 ms - 5599[0m
+[0mPOST /users/create-session [36m302[0m 1359.704 ms - 46[0m
+[0mGET / [32m200[0m 2647.744 ms - 7536[0m
+[0mGET /users/sign-out [36m302[0m 881.162 ms - 46[0m
+[0mGET / [32m200[0m 1263.247 ms - 5967[0m
+[0mGET /users/sign-in [36m304[0m 667.742 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 2946.007 ms - 46[0m
+[0mGET / [32m200[0m 4515.565 ms - 7536[0m
+[0mPOST /posts/create [36m302[0m 1361.357 ms - 88[0m
+[0mGET / [32m200[0m 3448.736 ms - 11205[0m
